@@ -6,6 +6,10 @@ Feature:  Search Tests
     When Search for coffee
     Then Verify search results are shown for coffee
 
+  Scenario: Sample
+    Given Open Target main page
+    When Search for tea
+    Then Verify tea is present
 
   Scenario Outline: User can search for an item
     Given Open Target main page

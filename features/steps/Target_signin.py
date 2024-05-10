@@ -5,20 +5,11 @@ from webdriver_manager.chrome import ChromeDriverManager
 from time import sleep
 from behave import given, when, then
 
-driver_path = ChromeDriverManager().install()
-
-# create a new Chrome browser instance
-service = Service(driver_path)
-driver = webdriver.Chrome(service=service)
-driver.maximize_window()
-
 
 # open the url
-@given('Open Target main page')
-def open_target_main_page(context):
-    context.driver.get('https://www.target.com/')
-
-
+# @given('Open Target main page')
+# def open_target_main_page(context):
+#     context.driver.get('https://www.target.com/')
 @when('Click Target signin button')
 def click_target_signin_button(context):
     context.driver.find_element(By.CSS_SELECTOR, "a[aria-label='Account, sign in']").click()

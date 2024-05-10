@@ -5,13 +5,6 @@ from webdriver_manager.chrome import ChromeDriverManager
 from time import sleep
 from behave import given, when, then
 
-# get the path to the ChromeDriver executable
-driver_path = ChromeDriverManager().install()
-
-# create a new Chrome browser instance
-service = Service(driver_path)
-driver = webdriver.Chrome(service=service)
-driver.maximize_window()
 
 Search_Btn = (By.XPATH, "//button[@data-test='@web/Search/SearchButton']")
 Search_Result_Header = (By.XPATH, "//div[@data-test='resultsHeading']")
@@ -21,16 +14,16 @@ View_cart = (By.XPATH, "//a[text()='View cart & check out']")
 Mango_in_cart = (By.XPATH, "//div[text()='Premium Mango - each']")
 
 
-@given('Open Target main page')
-def open_target_main_page(context):
-    context.driver.get('https://www.target.com/')
+# @given('Open Target main page')
+# def open_target_main_page(context):
+#     context.driver.get('https://www.target.com/')
 
 
-@when('Search for {item}')
-def search_for_mango(context, item):
-    context.driver.find_element(By.ID, 'search').send_keys(item)
-    context.driver.find_element(Search_Btn).click()
-    sleep(3)
+# @when('Search for {item}')
+# def search_for_mango(context, item):
+#     context.driver.find_element(By.ID, 'search').send_keys(item)
+#     context.driver.find_element(Search_Btn).click()
+#     sleep(3)
 
 
 @then('{item} Search result is shown')

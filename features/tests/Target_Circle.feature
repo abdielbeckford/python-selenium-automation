@@ -5,5 +5,6 @@ Feature: Tests for Target Circle
     Then Verify header is shown
 
   Scenario: Verify Target Circle page has certain amount of benefits
-    Given Open Target Circle page
+    Given Open Target Circle
     Then Verify Target Circle has 10 benefit cells
+
