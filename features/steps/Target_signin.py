@@ -22,6 +22,7 @@ def click_target_signin_popup(context):
 
 @then("Verify your taken to 'Sign into your Target account' page")
 def verify_target_signin_page(context):
-    actual_text = context.driver.find_element(By.XPATH, "//h1[contains(@class, 'StyledHeading')]").text
+    actual_text = context.driver.find_element(By.XPATH, "//span[text()='Sign into your Target account']").text
     expected_text = "Sign into your Target account"
     assert actual_text == expected_text, f"Expected '{expected_text}' but got '{actual_text}'"
+    sleep(4)

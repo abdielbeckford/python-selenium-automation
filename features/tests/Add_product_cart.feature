@@ -1,4 +1,4 @@
-# Created by abdie at 5/8/2024
+# Created by abdiel at 5/8/2024
 Feature: Cart tests
   Scenario: User can add product to cart
     Given Open Target main page
