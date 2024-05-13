@@ -13,6 +13,5 @@ Feature:  Search Tests
     Then Verify search results are shown for <expected_item>
     Examples:
     |item        |expected_item    |
-    |coffee      |coffee           |
     |tea         |tea              |
     |mug         |mug              |

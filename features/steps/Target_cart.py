@@ -1,16 +1,13 @@
-from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
 from time import sleep
 from behave import given, when, then
-
 
 
 # open the url
 @given('Open Target main page')
 def open_target_main_page(context):
-    context.driver.get('https://www.target.com/')
+    # context.driver.get('https://www.target.com/')
+    context.app.main_page.open_main_page()
 
 
 #Click Cart Icon
