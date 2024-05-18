@@ -2,6 +2,9 @@ from selenium.webdriver.common.by import By
 from time import sleep
 from behave import given, when, then
 
+CART_ICON = (By.CSS_SELECTOR, "div[data-test='@web/CartIcon']")
+Cart_empty_msg = (By.XPATH, "//h1[text()='Your cart is empty']")
+
 
 # open the url
 @given('Open Target main page')
@@ -13,7 +16,7 @@ def open_target_main_page(context):
 #Click Cart Icon
 @when('Click on cart icon')
 def click_cart_icon(context):
-    context.driver.find_element(By.CSS_SELECTOR, "div[data-test='@web/CartIcon']").click()
+    context.app.header.click_cart()
 
     sleep(3)
 
@@ -21,5 +24,4 @@ def click_cart_icon(context):
 #Verification
 @then('Verify cart is empty')
 def verify_cart(context):
-    actual_text = context.driver.find_element(By.XPATH, "//h1[text()='Your cart is empty']")
-    assert actual_text.text == 'Your cart is empty', f'Error: Text Your cart is empty not in '
+    context.app.cart_page.verify_cart_empty()

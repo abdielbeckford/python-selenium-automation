@@ -10,7 +10,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 Search_input = (By.ID, 'search')
 Search_Btn = (By.XPATH, "//button[@data-test='@web/Search/SearchButton']")
-Search_Result_Header = (By.XPATH, "//div[@data-test='resultsHeading']")
+Search_Result_Shown = (By.XPATH, "//div[@data-test='resultsHeading']")
 
 # open the url
 # @given('Open Target main page')

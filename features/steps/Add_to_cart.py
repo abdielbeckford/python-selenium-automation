@@ -27,24 +27,29 @@ Mango_in_cart = (By.XPATH, "//div[text()='Premium Mango - each']")
 
 @then('{item} Search result is shown')
 def search_for_mango_result(context, item):
-    actual_text = context.driver.find_element(Search_Result_Header).text
-    assert item in actual_text
+    # actual_text = context.driver.find_element(Search_Result_Header).text
+    # assert item in actual_text
+    context.app.search_results_page.verify_search_results(item)
 
 
 @then('Click add to cart')
 def click_add_to_cart(context):
-    context.driver.find_element(Add_to_cart).click()
-    context.driver.find_element(Add_to_cart_pt2).click()
-    sleep(4)
+    # context.driver.find_element(Add_to_cart).click()
+    # context.driver.find_element(Add_to_cart_pt2).click()
+    # sleep(4)
+    context.app.search_results_page.add_to_cart_btn()
+    context.app.side_nav_page.add_to_cart_side_nav()
 
 
 @then('Click view cart & check out')
 def click_view_cart(context):
-    context.driver.find_element(View_cart).click()
-    sleep(4)
+    # context.driver.find_element(View_cart).click()
+    # sleep(4)
+    context.app.side_nav_page.view_cart_side_nav()
 
 
 @then('Verify {item} is added to cart')
 def verify_mango(context, item):
-    actual_text = context.driver.find_element(Mango_in_cart).text
-    assert "Premium Mango - each" in actual_text
+    # actual_text = context.driver.find_element(Mango_in_cart).text
+    # assert "Premium Mango - each" in actual_text
+    context.app.cart_page.verify_item_in_cart(item)
