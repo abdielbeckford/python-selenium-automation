@@ -4,6 +4,9 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.support.wait import WebDriverWait
 from app.application import Application
 
+from Support.logger import logger
+
+
 def browser_init(context):
     """
     :param context: Behave context
@@ -22,12 +25,13 @@ def browser_init(context):
 
 
 def before_scenario(context, scenario):
-    print('\nStarted scenario: ', scenario.name)
+    logger.info(f'\nStarted scenario: {scenario.name}')
     browser_init(context)
 
 
 def before_step(context, step):
     print('\nStarted step: ', step)
+    logger.info(f'\nStarted step: {step.name}')
 
 
 def after_step(context, step):

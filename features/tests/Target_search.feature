@@ -15,3 +15,10 @@ Feature:  Search Tests
     |item        |expected_item    |
     |tea         |tea              |
     |mug         |mug              |
+
+
+  Scenario: User can see favorites tooltip for search results
+    Given Open Target main page
+    When Search for tea
+    And Hover favorites icon
+    Then Favorites tooltip is shown

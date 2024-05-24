@@ -1,6 +1,8 @@
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+from Support.logger import logger
+
 
 class Page:
 
@@ -9,6 +11,7 @@ class Page:
         self.driver = driver
 
     def open(self, url):
+        logger.info(f"Opening {url}")
         self.driver.get(url)
 
     def find_element(self, *locator):
@@ -51,7 +54,7 @@ class Page:
 
     def switch_to_new_window(self):
         self.wait.until(EC.new_window_is_opened)
-        all_windows = self.driver.window_handles #win1, win2...
+        all_windows = self.driver.window_handles  #win1, win2...
         print('All windows:', self.driver.window_handles)
         print('Switching to...', all_windows[1])
         self.driver.switch_to.window(all_windows[1])

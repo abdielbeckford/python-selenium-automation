@@ -6,15 +6,17 @@ from Pages.base_page import Page
 from Pages.side_nav_page import SideNavPage
 from Pages.sign_in_page import SignInPage
 from Pages.target_app_page import TargetAppPage
+from Pages.help_page import HelpPage
 
 
 class Application:
     def __init__(self, driver):
         self.base_page = Page(driver)
         self.main_page = MainPage(driver)
-        self.header = Header(self.main_page)
-        self.search_results_page = SearchResultsPage(self.main_page)
-        self.cart_page = CartPage(self.main_page)
-        self.side_nav_page = SideNavPage(self.main_page)
-        self.sign_in_page = SignInPage(self.main_page)
-        self.target_app_page = TargetAppPage(self.main_page)
+        self.header = Header(driver)
+        self.search_results_page = SearchResultsPage(driver)
+        self.cart_page = CartPage(driver)
+        self.side_nav_page = SideNavPage(driver)
+        self.sign_in_page = SignInPage(driver)
+        self.target_app_page = TargetAppPage(driver)
+        self.help_page = HelpPage(driver)
